@@ -16,9 +16,13 @@ class MainWidget(QMainWindow):
         self.connection = sqlite3.connect('coffee.db')
         self.update_table()
 
+        self.btn_update.clicked.connect(self.update_table)
+
     def update_table(self):
         query = 'SELECT * FROM Varieties'
         result = self.connection.cursor().execute(query).fetchall()
+
+        self.table.setRowCount(0)
         for i, row in enumerate(result):
             row = map(str, row)
             self.table.setRowCount(self.table.rowCount() + 1)

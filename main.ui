@@ -15,7 +15,7 @@
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
-    <item row="0" column="0">
+    <item row="1" column="0">
      <widget class="QTableWidget" name="table">
       <column>
        <property name="text">
@@ -52,6 +52,19 @@
         <string>Объем упаковки</string>
        </property>
       </column>
+     </widget>
+    </item>
+    <item row="0" column="0">
+     <widget class="QPushButton" name="btn_update">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="text">
+       <string>Обновить</string>
+      </property>
      </widget>
     </item>
    </layout>
