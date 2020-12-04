@@ -4,11 +4,15 @@ import sqlite3
 from PyQt5 import uic
 from PyQt5.QtWidgets import QApplication, QMainWindow, QDialog, QTableWidgetItem
 
+from UI.main_ui import Ui_MainWindow
+from UI.addEditCoffeeForm_ui import Ui_Dialog
 
-class EditVarietyDialog(QDialog):
+
+class EditVarietyDialog(QDialog, Ui_Dialog):
     def __init__(self, parent, window_title):
         super().__init__(parent)
-        uic.loadUi('addEditCoffeeForm.ui', self)
+        # uic.loadUi('addEditCoffeeForm.ui', self)
+        self.setupUi(self)
 
         self.setWindowTitle(window_title)
 
@@ -42,15 +46,17 @@ class EditVarietyDialog(QDialog):
         return title, roasting_degree, ground, taste, price, size
 
 
-class MainWidget(QMainWindow):
+class MainWidget(QMainWindow, Ui_MainWindow):
     def __init__(self):
         super().__init__()
-        uic.loadUi('main.ui', self)
+        # uic.loadUi('main.ui', self)
+        self.setupUi(self)
+
         self.setWindowTitle('Эспрессо')
 
         self.ground_beans = ['В зернах', 'Молотый']
 
-        self.connection = sqlite3.connect('coffee.db')
+        self.connection = sqlite3.connect('data/coffee.db')
         self.update_table()
 
         self.btn_update.clicked.connect(self.update_table)
